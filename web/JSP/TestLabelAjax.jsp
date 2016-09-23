@@ -28,20 +28,21 @@
         <%-- TEST  http://stackoverflow.com/questions/19970323/update-jsp-page-label-value-using-ajax  --%>
 
         <script type="text/javascript">
+            
+            $(":input").bind('keyup mouseup', function () { 
+                                                  alert("changed");    
+                                              });
 
-            $(document).ready(function () {
-
-                setInterval(function () {
+              calcul() {
                     $.ajax({
-                        url: 'http://localhost:41422/WebApplication1/TimerAjax?userid=' + document.getElementById("uid").value,
+                        url: 'http://localhost:41422/WebApplication1/TimerAjax?userid=' +$('#id_number').text(),
                         type: 'post',
                         dataType: 'json',
                         success: function (data) {
-                            $('#lblscore').html(data.score); //Here use html()
+                            $('#lblscore').html(data.score); 
                         }
-                    });
-                }, 5000);
-            });
+                      });
+                });
         </script>  
 
         
@@ -51,8 +52,8 @@
 
             <table>
                 <tr>
-                    <td>Current Score <p id="uid">2</p> =>  </td>
-                    <td><label id="lblscore"></label></td>
+                    <td>quantite =  <input type="number" id="id_number" value="1" min="1" max="3" /> </td>
+                    <td>>>>>>>>>><label id="lblscore"></label></td>
                 </tr>
             </table>
         </div>
