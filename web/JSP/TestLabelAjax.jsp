@@ -32,6 +32,9 @@
             $(":input").bind('keyup mouseup', function () { 
                                                   alert("changed");    
                                               });
+                                              
+                                              
+                                              
 
               calcul() {
                     $.ajax({
